@@ -10,6 +10,7 @@ namespace projx.Data.Maps
         {
             builder.ToTable("Agendamento");
             builder.HasKey(x => x.IdAgendamento);
+            builder.Property(x => x.DataInicio).IsRequired();
         }
     }
 }

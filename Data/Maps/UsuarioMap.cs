@@ -10,6 +10,9 @@ namespace projx.Data.Maps
         {
             builder.ToTable("Usuario");
             builder.HasKey(x => x.IdUsuario);
+            builder.Property(x => x.NomUsuario).IsRequired();
+            builder.Property(x => x.Ativo).IsRequired();
+            builder.Property(x => x.DataCriacao).IsRequired();
         }
     }
 }

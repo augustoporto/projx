@@ -16,6 +16,7 @@ namespace projx.Data.Maps
             builder.Property(x => x.DscConta)
                 .IsRequired()
                 .HasColumnType("varchar(50)");
+            
         }
     }
 }

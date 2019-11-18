@@ -10,6 +10,7 @@ namespace projx.Data.Maps
         {
             builder.ToTable("CategoriaMovimentacao");
             builder.HasKey(x => x.IdCategoria);
+            builder.Property(x => x.DscCategoria).IsRequired().HasMaxLength(50);
         }
     }
 }
