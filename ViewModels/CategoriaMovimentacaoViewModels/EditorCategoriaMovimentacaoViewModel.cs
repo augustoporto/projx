@@ -7,7 +7,7 @@ namespace projx.ViewModels.CategoriaMovimentacaoViewModel
     {
         public int IdCategoria { get; set; }
         public string DscCategoria { get; set; }
-        public int FlgAtivo { get; set; }
+        public bool FlgAtivo { get; set; }
 
         public void Validate()
         {

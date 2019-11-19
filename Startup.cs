@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using projx.Data;
+using projx.Repositories;
 
 namespace projx
 {
@@ -13,6 +15,10 @@ namespace projx
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(option => option.EnableEndpointRouting = false);
+            services.AddResponseCompression();
+            services.AddScoped<MovimentacaoDataContext, MovimentacaoDataContext>();
+            services.AddTransient<CategoriaMovimentacaoRepository, CategoriaMovimentacaoRepository>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -22,14 +28,6 @@ namespace projx
                 app.UseDeveloperExceptionPage();
 
             app.UseMvc();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-            });
         }
     }
 }
