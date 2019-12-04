@@ -18,6 +18,7 @@ namespace projx
             services.AddResponseCompression();
             services.AddScoped<MovimentacaoDataContext, MovimentacaoDataContext>();
             services.AddTransient<CategoriaMovimentacaoRepository, CategoriaMovimentacaoRepository>();
+            services.AddTransient<ContaRepository, ContaRepository>();
             
         }
 

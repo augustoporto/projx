@@ -13,6 +13,8 @@ namespace projx.Data.Maps
             builder.Property(x => x.Ativa)
                 .IsRequired()
                 .HasMaxLength(1);
+            builder.Property(x => x.DataCriacao)
+                .IsRequired();
             builder.Property(x => x.DscConta)
                 .IsRequired()
                 .HasColumnType("varchar(50)");
