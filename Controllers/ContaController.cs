@@ -94,8 +94,10 @@ namespace projx.Controllers
 
         [Route("v1/contas/{id}")]
         [HttpDelete]
-        public ResultViewModel Delete(Conta conta)
+        public ResultViewModel Delete(int id)
         {
+            var conta = _contaRepository.Get(id);
+
             if (_contaRepository.Delete(conta))
             {
                 return new ResultViewModel

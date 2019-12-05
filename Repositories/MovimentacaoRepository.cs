@@ -5,7 +5,7 @@ using projx.Data;
 using projx.Models;
 using projx.ViewModels.MovimentacaoViewModel;
 
-namespace projx.Repositories.MovimentacaoRepository
+namespace projx.Repositories
 {
     public class MovimentacaoRepository
     {
@@ -39,15 +39,27 @@ namespace projx.Repositories.MovimentacaoRepository
         {
             return _context.Movimentacoes.Find(id);
         }
-        public void Save(Movimentacao movimentacao)
+        public bool Save(Movimentacao movimentacao)
         {
             _context.Movimentacoes.Add(movimentacao);
-            _context.SaveChanges();
+            var saved = _context.SaveChanges();
+
+            return saved > 0;
         }
-        public void Update(Movimentacao movimentacao)
+        public bool Update(Movimentacao movimentacao)
         {
             _context.Entry<Movimentacao>(movimentacao).State = EntityState.Modified;
-            _context.SaveChanges();
+            var updated = _context.SaveChanges();
+
+            return updated == 1;
         }
+        public bool Delete(Movimentacao movimentacao)
+        {
+            _context.Movimentacoes.Remove(movimentacao);
+            var deleted = _context.SaveChanges();
+
+            return deleted > 0;
+        }
+        
     }
 }
