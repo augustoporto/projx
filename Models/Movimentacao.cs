@@ -6,6 +6,8 @@ namespace projx.Models
     public class Movimentacao
     {
         public int IdMovimentacao { get; set; }
+        public string DscMovimentacao { get; set; }
+        public string DscDetalhada {get; set;}
         public char Natureza { get; set; }
         public decimal Valor { get; set; }
         public DateTime DataLancamento { get; set; }

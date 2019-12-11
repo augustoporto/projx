@@ -56,9 +56,9 @@ namespace projx.Repositories
             return update == 1;
         }
 
-        public bool Delete(Conta id)
+        public bool Delete(Conta conta)
         {
-            _context.Contas.Remove(id);
+            _context.Contas.Remove(conta);
             var deleted = _context.SaveChanges();
 
             return deleted > 0;
