@@ -34,9 +34,9 @@ namespace projx.Repositories
             .AsNoTracking()
             .ToList();
         }
-        public Movimentacao Get(int id)
+        public Agendamento Get(int id)
         {
-            return _context.Movimentacoes.Find(id);
+            return _context.Agendamentos.Find(id);
         }
         public bool Save(Agendamento agendamento)
         {
