@@ -1,8 +1,9 @@
 using System;
 
-namespace projx.Models
+
+namespace projx.ViewModels.UsuarioViewModel
 {
-    public class Usuario
+    public class ListUsuarioViewModel
     {
         public int IdUsuario { get; set; }
         public string NomUsuario { get; set; }
@@ -10,6 +11,5 @@ namespace projx.Models
         public DateTime DataCriacao {get; set;}
         public string Pswd { get; set; }
         public bool Ativo { get; set; }
-
-    } 
+    }
 }

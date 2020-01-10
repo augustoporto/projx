@@ -117,7 +117,7 @@ namespace projx.Controllers
             {
                 Success = false,
                 Message = "Não foi possível encontrar a movimentação que tentou deletar.",
-                Data = null
+                Data = movimentacao != null ? movimentacao : null
             };
             
         }
