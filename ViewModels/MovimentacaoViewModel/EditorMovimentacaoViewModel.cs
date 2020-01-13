@@ -19,7 +19,7 @@ namespace projx.ViewModels.MovimentacaoViewModel
         {
             AddNotifications(
                 new Contract()
-                    .IsLowerOrEqualsThan(Valor, 0, "Valor", "O valor da movimentação deve ser maior que 0.")
+                    .IsGreaterThan(Valor, 0, "Valor", "O valor da movimentação deve ser maior que 0.")
             );
         }
     }

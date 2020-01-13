@@ -21,6 +21,7 @@ namespace projx
             services.AddTransient<ContaRepository, ContaRepository>();
             services.AddTransient<UsuarioRepository, UsuarioRepository>();
             services.AddTransient<AgendamentoRepository, AgendamentoRepository>();
+            services.AddTransient<MovimentacaoRepository, MovimentacaoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

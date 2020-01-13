@@ -12,10 +12,12 @@ namespace projx.Controllers
     public class ContaController : Controller
     {
         private readonly ContaRepository _contaRepository;
+        private readonly UsuarioRepository _usuarioRepository;
 
-        public ContaController(ContaRepository contaRepository)
+        public ContaController(ContaRepository contaRepository, UsuarioRepository usuarioRepository)
         {
             _contaRepository = contaRepository;
+            _usuarioRepository = usuarioRepository;
         }
 
         [Route("v1/contas")]
@@ -50,7 +52,7 @@ namespace projx.Controllers
             conta.DataCriacao = DateTime.Now;
             conta.DscConta = model.DscConta;
             conta.TipoConta = model.TipoConta;
-            conta.Usuario.IdUsuario = model.IdUsuario;
+            conta.Usuario = _usuarioRepository.Get(model.IdUsuario);
 
             _contaRepository.Save(conta);
 
