@@ -9,6 +9,6 @@ namespace projx.Models
         public string DscCategoria { get; set; }
         public bool FlgAtivo { get; set; }
 
-        public IEnumerable<Movimentacao> Movimentacoes { get; set; }
+        //public IEnumerable<Movimentacao> Movimentacoes { get; set; }
     }
 }

@@ -8,6 +8,8 @@ namespace projx.ViewModels.MovimentacaoViewModel
     {
         public int IdMovimentacao { get; set; }
         public char Natureza { get; set; }
+        public string DscMovimentacao { get; set; }
+        public string DscDetalhada { get; set; }
         public decimal Valor { get; set; }
         public DateTime DataLancamento { get; set; }
         public DateTime DataCriacao { get; set; }

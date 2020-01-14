@@ -11,10 +11,17 @@ namespace projx.Controllers
     public class MovimentacaoController : Controller
     {
         private readonly MovimentacaoRepository _movimentacaoRepository;
+        private readonly CategoriaMovimentacaoRepository _categoriaMovimentacaoRepository;
+        private readonly ContaRepository _contaRepository;
+        private readonly UsuarioRepository _usuarioRepository;
+
         
-        public MovimentacaoController(MovimentacaoRepository movimentacaoRepository)
+        public MovimentacaoController(MovimentacaoRepository movimentacaoRepository, CategoriaMovimentacaoRepository categoriaMovimentacaoRepository, ContaRepository contaRepository, UsuarioRepository usuarioRepository)
         {
             _movimentacaoRepository = movimentacaoRepository;
+            _categoriaMovimentacaoRepository = categoriaMovimentacaoRepository;
+            _contaRepository = contaRepository;
+            _usuarioRepository = usuarioRepository;
         }
 
         [Route("v1/movimentacoes")]
@@ -45,12 +52,12 @@ namespace projx.Controllers
                 };
 
             var movimentacao = new Movimentacao();
-            movimentacao.Categoria.IdCategoria = model.IdCategoria;
-            movimentacao.Conta.IdConta = model.IdConta;
+            movimentacao.Categoria = _categoriaMovimentacaoRepository.Get(model.IdCategoria);
+            movimentacao.Conta = _contaRepository.Get(model.IdConta);
             movimentacao.DataCriacao = DateTime.Now;
             movimentacao.DataLancamento = model.DataLancamento;
             movimentacao.Natureza = model.Natureza;
-            movimentacao.Usuario.IdUsuario = model.IdUsuario;
+            movimentacao.Usuario = _usuarioRepository.Get(model.IdUsuario);
             movimentacao.Valor = model.Valor;
 
             _movimentacaoRepository.Save(movimentacao);
