@@ -16,7 +16,7 @@ namespace projx.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Deve-se adicionar a package Microsoft.EntityFrameworkCore.SqlServer para aparecer a optionbuilder 'UseSqlServer'
-            optionsBuilder.UseSqlServer(@"Server=localhost,1433;Database=fnctrl;User ID=SA;Password=!123Tibiarox123");
+            optionsBuilder.UseSqlServer(@"Server=localhost,1433;Database=fnctrl;User ID=SA;Password=123456");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
